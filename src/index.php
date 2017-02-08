@@ -14,6 +14,12 @@ $server = array(
 //生成redis实例
 $redis = new Predis\Client($server);
 
+$redis->set("idff","123456",3600);
+
+echo $redis->get("idff");
+
+die;
+
 function is_HTTPS()
 {
     if (!isset($_SERVER['HTTPS'])) return FALSE;
@@ -99,7 +105,7 @@ if (empty($code)) {
         'domain' => getDomain()
     );
 
-    $redis->set($state, json_encode($con));
+    $redis->set($state, json_encode($con), 3600);
 
     //Redis
 
