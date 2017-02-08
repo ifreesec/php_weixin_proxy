@@ -124,7 +124,5 @@ if (empty($code)) {
                 'code=' . $code,
                 '&state=' . $state
             ]));
-    } else {
-        echo "Hello to proxy.";
     }
 }
