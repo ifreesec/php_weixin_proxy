@@ -1,0 +1,31 @@
+{
+    "name": "sanjieke/dev-webhook",
+    "require": {
+        "predis/predis": "^1.1"
+    },
+    "authors": [
+        {
+            "name": "zhangyi",
+            "email": "ifreesec@163.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "PROXY\\": [
+                "src"
+            ]
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packagist.phpcomposer.com"
+        },
+        {
+            "packagist.org": false
+        }
+    ],
+    "require-dev": {
+        "kahlan/kahlan": "^3.0"
+    }
+}
