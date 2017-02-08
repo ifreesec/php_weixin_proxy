@@ -12,13 +12,7 @@ $server = array(
     'database' => 15
 );
 //生成redis实例
-$redis = new Predis\Client($server);
-
-$redis->set("idff","123456",3600);
-
-echo $redis->get("idff");
-
-die;
+$redis = new Predis\Client($server, ['prefix' => 'proxy:']);
 
 function is_HTTPS()
 {
@@ -105,7 +99,7 @@ if (empty($code)) {
         'domain' => getDomain()
     );
 
-    $redis->set($state, json_encode($con), 3600);
+    $redis->setex($state, 3600, json_encode($con));
 
     //Redis
 
@@ -130,5 +124,7 @@ if (empty($code)) {
                 'code=' . $code,
                 '&state=' . $state
             ]));
+    } else {
+        echo "Hello to proxy.";
     }
 }
